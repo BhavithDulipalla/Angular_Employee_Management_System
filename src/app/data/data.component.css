@@ -1,0 +1,157 @@
+#left{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+}
+
+#right{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+.items {
+  background-color: #333;
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+  top: -12px;
+  left: 0;
+}
+
+.items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.items li {
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.items li:hover, .items li.active {
+  background-color: #4CAF50;
+  border-radius: 0.25rem;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+/* Container for form and table */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Input fields */
+  input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  /* Labels */
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Warning messages */
+  p {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #285e2b;
+  }
+
+/* Table styling */
+table {
+    flex: 1;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+}
+
+td {
+    font-size: 14px;
+    color: #555;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    form {
+      width: 100%;
+    }
+  }
+  

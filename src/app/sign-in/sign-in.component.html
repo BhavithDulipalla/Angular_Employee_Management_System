@@ -1,0 +1,11 @@
+<form [formGroup]="signInForm" (ngSubmit)="handleSubmit()">
+    <h2>Sign In</h2>
+    <label for="userName">Username: </label>
+    <input type="text" id="userName" formControlName="userName" (ngModelChange)="userNameCheck()" />
+    <p>{{userNameWarning}}</p>
+    <label for="password">Password: </label>
+    <input type="password" id="password" formControlName="password" (ngModelChange)="passwordCheck()" />
+    <p>{{passwordWarning}}</p>
+    <button type="submit">Sign In</button>
+    <span>New to EMS? <a routerLink="/signUp">SignUp</a></span>
+</form>

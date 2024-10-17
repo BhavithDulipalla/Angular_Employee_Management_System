@@ -1,0 +1,103 @@
+<div class="menu" id="left" (mouseleave)="hideMenu()">
+    <button (click)="showMenu()">Employee Operations</button>
+    <div class="items" [hidden]="menu_items">
+        <ul>
+            <li (click)="showContent('allEmployees'); getAll()">Show All Employees</li>
+            <li (click)="showContent('addEmployee')">Add Employee</li>
+            <li (click)="showContent('searchEmployee')">Search Employee</li>
+            <li (click)="showContent('updateEmployee')">Update Employee</li>
+            <li (click)="showContent('removeEmployee')">Remove Employee</li>
+        </ul>
+    </div>
+</div>
+
+<div class="menu" id="right" (mouseleave)="hideUser()">
+    <button (click)="showUser()">{{currentUser}}</button>
+    <div class="items" [hidden]="user_items">
+        <ul>
+            <li><a routerLink="/account">Account</a></li>
+            <li><a routerLink="">Sign Out</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container"> 
+    @switch (content) {
+        @case ('allEmployees') {
+            <table>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Employee Designation</th>
+                </tr>
+                @for (emp of employeeData; track emp.empId) {
+                    <tr>
+                        <td>{{emp.empId}}</td>
+                        <td>{{emp.empName}}</td>
+                        <td>{{emp.empDesignation}}</td>
+                    </tr>
+                }
+            </table>
+        }
+        @case ('addEmployee') {
+            <form [formGroup]="employeeForm">
+                <label for='id'>Employee Id: </label>
+                <input id="id" type="number" formControlName="id"/>
+                <p>{{idWarning}}</p>
+                <label for='name'>Employee Name: </label>
+                <input id="name" type="text" formControlName="name"/>
+                <p>{{nameWarning}}</p>
+                <label for='designation'>Employee Designation: </label>
+                <input id="designation"type="text" formControlName="designation"/>
+                <p>{{designationWarning}}</p>
+                <button (click)="add()">Add Employee</button>
+            </form>
+        }
+        @case ('searchEmployee') {
+            <form [formGroup]="searchAndDelete">
+                <label for='id'>Employee Id: </label>
+                <input id="id" type="number" formControlName="employeeId"/>
+                <p>{{employeeIdWarning}}</p>
+                <button (click)="search()">Search Employee</button>
+                <table>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Employee Designation</th>
+                </tr>
+                
+                    <tr>
+                        <td>{{employee.empId}}</td>
+                        <td>{{employee.empName}}</td>
+                        <td>{{employee.empDesignation}}</td>
+                    </tr>
+            </table>
+            </form>
+        }
+        @case ('updateEmployee') {
+            <form [formGroup]="employeeForm">
+                <label for='id'>Employee Id: </label>
+                <input id="id" type="number" formControlName="id"/>
+                <p>{{idWarning}}</p>
+                <label for='name'>Employee Name: </label>
+                <input id="name" type="text" formControlName="name"/>
+                <p>{{nameWarning}}</p>
+                <label for='designation'>Employee Designation: </label>
+                <input id="designation"type="text" formControlName="designation"/>
+                <p>{{designationWarning}}</p>
+                <button (click)="update()">Update Employee</button>
+            </form>
+        }
+        @case ('removeEmployee') {
+            <form [formGroup]="searchAndDelete">
+                <label for='id'>Employee Id: </label>
+                <input id="id" type="number" formControlName="employeeId"/>
+                <p>{{employeeIdWarning}}</p>
+                <button (click)="remove()">Remove Employee</button>
+            </form>
+        }
+        @default {
+            <h2>Welcome to Employee Management System</h2>
+        }
+    }    
+</div>
